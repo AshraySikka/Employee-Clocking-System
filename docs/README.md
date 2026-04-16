@@ -3,7 +3,7 @@
 A Python-based employee clocking system that manages employee records, shift scheduling, time tracking, and payroll generation. Built using `SQLAlchemy` for Object Relational Mapping and `Alembic` for database migrations, the system provides a menu-driven console interface for performing CRUD operations across five relational database tables.
 
 #### Features
-The main features of our program are:
+The main features of this program are:
 1. Employee Management: Full CRUD operations for managing employee records including personal details, contact information, and position assignments.
 2. Position Management: Ability to create, read, update, and delete company positions with associated hourly compensation rates. Positions cannot be deleted while employees are assigned to them.
 3. Shift Scheduling: Assign, view, update, and delete employee shifts. Shifts can be looked up by shift ID or by employee ID.
@@ -14,7 +14,7 @@ The main features of our program are:
 8. Error Handling: Comprehensive try-except blocks and input validation across all operations with clear, user-friendly error messages.
 
 #### How It Works
-Our program works in the following steps:
+This program works in the following steps:
 1. Database Initialization: Alembic runs the initial migration to create the five database tables (positions, employees, shifts, timestamps, payrolls) with all necessary columns, constraints, and foreign key relationships.
 2. Seed Data Population: A subsequent Alembic migration populates the tables with sample data including 3 positions, 5 employees, 8 shifts, 15 timestamp records, and 5 payroll records.
 3. Menu-Driven Interface: The user runs `model.py` which presents a main menu with options for Employee, Position, Shift, Timestamp, and Payroll management. Each submenu provides Create, Read, Update, and Delete operations.
@@ -30,16 +30,16 @@ The program uses five tables:
 5. `payrolls` - Stores pay period records with calculated hours and compensation, with a foreign key to employees.
 
 #### How to Run
-To run our program, complete the following steps:
+To run this program, complete the following steps:
 1. Ensure you have Python 3.10+ installed on your system (required for match-case syntax).
 2. Install the required libraries by running: `pip install sqlalchemy alembic`
-3. Ensure your terminal is opened to the root assignment directory containing the `alembic.ini` file.
+3. Ensure your terminal is opened to the root directory containing the `alembic.ini` file.
 4. Update the database connection string in `data/create.py` and `alembic.ini` to match your local file path.
 5. Run the database migrations to build the schema and populate seed data: `alembic upgrade head`
 6. Run the program: `python -m src.model`
 
 #### Notes
-We have made a few assumptions for our program:
+A few assumptions were made for this program:
 1. The program uses a SQLite database for local development. The database connection string in `data/create.py` and `alembic.ini` must be updated to match the user's local file path.
 2. The 15-minute clock-in window is enforced strictly. An employee cannot clock in more than 15 minutes before or after their scheduled shift start time.
 3. Overtime is not a factor at the company. Daily hours worked are capped at 8 hours per check-in/check-out pair.
